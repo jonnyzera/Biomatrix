@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
   <title>Biomatrix | Elevate your mind, sustain your future.</title>
-  <link rel="icon" type="image/png" href="img/LOGO.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="description" content="Descubra a linha completa de suplementos Biomatrix. Junte-se ao nosso movimento, seja voluntário e ganhe recompensas exclusivas." />
   <meta name="theme-color" content="#000000" />
 
@@ -14,12 +14,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
     body {
       margin: 0;
       min-height: 100vh;
       background: #000;
       color: #fff;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       overflow-x: hidden;
     }
     
@@ -33,16 +35,29 @@
       opacity: 1;
       transform: translateY(0);
     }
-    
-    /* Gradientes Radiais para os Produtos */
-    .bg-radial-energy { background: radial-gradient(circle, rgba(204,255,0,0.12) 0%, rgba(0,0,0,0) 65%); }
-    .bg-radial-focus { background: radial-gradient(circle, rgba(157,78,221,0.12) 0%, rgba(0,0,0,0) 65%); }
-    .bg-radial-relax { background: radial-gradient(circle, rgba(0,180,216,0.12) 0%, rgba(0,0,0,0) 65%); }
 
-    /* Padrão Topográfico Fundo Sutil */
-    .bg-topo {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-      background-size: 40px 40px;
+    /* Topographic Graphic / Padrão */
+    .topo-graphic {
+      background-image: repeating-radial-gradient(
+        circle at center,
+        transparent 0,
+        transparent 8px,
+        rgba(255, 255, 255, 0.15) 9px,
+        transparent 10px
+      );
+      mask-image: radial-gradient(circle, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle, black 20%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    /* Efeito de Vignette (Bordas escuras para mesclar as imagens de fundo) */
+    .bg-vignette {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(to bottom, #000 0%, transparent 15%, transparent 85%, #000 100%),
+        linear-gradient(to right, #000 0%, transparent 15%, transparent 85%, #000 100%);
+      pointer-events: none;
     }
 
     /* Menu Mobile */
@@ -123,106 +138,129 @@
 
   <main>
     
-    <!-- SECÇÃO 1: HERO (Página Inicial) -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
-      <div class="container mx-auto px-6 md:px-12 relative z-10 flex justify-center">
-        <div class="relative w-full max-w-6xl fade-hidden" data-fade>
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-[#00b4d8]/20 to-transparent blur-3xl rounded-full z-0 pointer-events-none"></div>
-          <img src="img/home-img.png" alt="Biomatrix Products Floating" class="relative z-10 w-full object-contain drop-shadow-2xl" />
+    <!-- SECÇÃO 1: HERO -->
+    <section id="home" class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
+      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#00b4d8]/10 via-[#9d4edd]/5 to-transparent blur-3xl rounded-full z-0 pointer-events-none"></div>
+      
+      <div class="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+        <!-- Texto Esquerda -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center fade-hidden" data-fade>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.1] tracking-tight text-white mb-6">
+            Elevate<br/>
+            your mind,<br/>
+            sustain<br/>
+            your future.
+          </h1>
+        </div>
+        <!-- Imagem Direita -->
+        <div class="w-full md:w-1/2 relative fade-hidden" data-fade>
+          <img src="img/home-img.png" alt="Biomatrix Products Floating" class="relative z-10 w-full max-w-lg mx-auto object-contain drop-shadow-2xl md:scale-110" />
         </div>
       </div>
     </section>
 
     <!-- SECÇÃO 2: FRASE DE IMPACTO (Unleash a better self) -->
-    <section id="about" class="py-32 relative border-t border-zinc-900/50 flex flex-col items-center text-center">
-      <!-- Fundo topográfico -->
-      <div class="absolute inset-0 bg-topo opacity-5 pointer-events-none mask-image-gradient"></div>
-      
-      <div class="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl fade-hidden" data-fade>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight mb-12">
-          Unleash a <span class="underline decoration-1 underline-offset-8">better self</span><br />
-          for a <span class="underline decoration-1 underline-offset-8">better world.</span>
+    <section id="about" class="py-24 relative flex flex-col items-center text-center overflow-hidden">
+      <div class="container mx-auto px-6 md:px-12 relative z-10 max-w-3xl flex flex-col items-center fade-hidden" data-fade>
+        
+        <!-- Elemento Gráfico Topográfico Simulando a digital do mockup -->
+        <div class="w-64 h-32 topo-graphic mb-12 opacity-80"></div>
+        
+        <h2 class="text-4xl md:text-5xl font-extralight leading-tight tracking-tight mb-8">
+          Unleash a <span class="border-b border-white pb-1">better self</span><br />
+          for a <span class="border-b border-white pb-1">better world.</span>
         </h2>
-        <p class="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto">
+        <p class="text-base md:text-lg text-zinc-400 font-light leading-relaxed max-w-xl mx-auto">
           Biomatrix is about energizing the mind for a healthier, more sustainable world—a movement for positive change.
         </p>
       </div>
     </section>
 
     <!-- SECÇÃO 3: PRODUTOS DETALHADOS -->
-    <section id="products-list" class="py-24 flex flex-col gap-40 overflow-hidden relative">
+    <section id="products-list" class="flex flex-col">
       
       <!-- Produto 1: ENERGY -->
-      <article class="relative container mx-auto px-6 md:px-12">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-radial-energy blur-[120px] pointer-events-none rounded-full"></div>
-        <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-32">
-          <div class="w-full md:w-1/2 flex justify-center lg:justify-end fade-hidden" data-fade>
-            <img src="img/energy-pill.png" alt="Energy Supplement" class="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:-translate-y-4" />
+      <article class="relative w-full min-h-screen flex items-center py-24 overflow-hidden border-b border-zinc-900/50">
+        <!-- Imagem de Fundo c/ Vignette -->
+        <div class="absolute inset-0 z-0 flex justify-center items-center opacity-30">
+          <img src="BACKGROUND-ENERGY.jpg" alt="Energy Background" class="w-full h-full object-cover object-center" />
+          <div class="bg-vignette"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+          <div class="flex justify-center md:justify-end fade-hidden" data-fade>
+            <img src="img/energy-pill.png" alt="Energy Supplement" class="w-full max-w-[280px] drop-shadow-[0_0_50px_rgba(204,255,0,0.2)] hover:scale-105 transition-transform duration-700" />
           </div>
-          <div class="w-full md:w-1/2 flex flex-col fade-hidden" data-fade>
-            <h3 class="text-5xl font-medium tracking-widest text-[#ccff00] mb-2">Energy</h3>
-            <p class="text-xl text-zinc-300 font-light mb-10">Natural energy that lasts.</p>
-            <div class="flex flex-col gap-3 mb-10 border-l border-zinc-800 pl-6">
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">B12 VITAMIN</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">GINGER</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">CAFFEINE</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase mt-4">VEGAN</span>
+          <div class="flex flex-col items-start fade-hidden" data-fade>
+            <h3 class="text-4xl md:text-5xl font-medium tracking-widest text-[#ccff00] mb-2">Energy</h3>
+            <p class="text-lg text-zinc-300 font-light mb-8">Natural energy that lasts.</p>
+            <div class="flex flex-col gap-3 mb-10 border-l border-zinc-700 pl-6">
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">B12 VITAMIN</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">GINGER</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">CAFFEINE</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase mt-4">VEGAN</span>
             </div>
-            <div>
-              <button class="px-8 py-3 border border-[#ccff00] text-[#ccff00] font-medium tracking-widest text-xs uppercase hover:bg-[#ccff00] hover:text-black transition-all duration-300 rounded">
-                ADD TO CART
-              </button>
-            </div>
+            <button class="px-8 py-3 border border-[#ccff00] text-[#ccff00] font-medium tracking-widest text-[0.65rem] md:text-xs uppercase hover:bg-[#ccff00] hover:text-black transition-all duration-300 rounded">
+              ADD TO CART
+            </button>
           </div>
         </div>
       </article>
 
       <!-- Produto 2: FOCUS -->
-      <article class="relative container mx-auto px-6 md:px-12">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-radial-focus blur-[120px] pointer-events-none rounded-full"></div>
-        <div class="relative z-10 flex flex-col md:flex-row-reverse items-center justify-center gap-12 lg:gap-32">
-          <div class="w-full md:w-1/2 flex justify-center lg:justify-start fade-hidden" data-fade>
-            <img src="img/focus-pill.png" alt="Focus Supplement" class="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:-translate-y-4" />
+      <article class="relative w-full min-h-screen flex items-center py-24 overflow-hidden border-b border-zinc-900/50">
+        <!-- Imagem de Fundo c/ Vignette -->
+        <div class="absolute inset-0 z-0 flex justify-center items-center opacity-30">
+          <img src="BACKGROUND-FOCUS.jpg" alt="Focus Background" class="w-full h-full object-cover object-center" />
+          <div class="bg-vignette"></div>
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+          <!-- De acordo com o mockup: Focus tem pílula à esquerda, texto à direita, para não cobrir a mulher na bg direita -->
+          <div class="flex justify-center md:justify-end fade-hidden" data-fade>
+            <img src="img/focus-pill.png" alt="Focus Supplement" class="w-full max-w-[280px] drop-shadow-[0_0_50px_rgba(157,78,221,0.2)] hover:scale-105 transition-transform duration-700" />
           </div>
-          <div class="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right fade-hidden" data-fade>
-            <h3 class="text-5xl font-medium tracking-widest text-[#9d4edd] mb-2">Focus</h3>
-            <p class="text-xl text-zinc-300 font-light mb-10">Align body and mind.</p>
-            <div class="flex flex-col gap-3 mb-10 border-l md:border-l-0 md:border-r border-zinc-800 pl-6 md:pl-0 md:pr-6">
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">CAFFEINE</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">TAURINE</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">TRYPTOPHAN</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase mt-4">VEGAN</span>
+          <div class="flex flex-col items-start fade-hidden" data-fade>
+            <h3 class="text-4xl md:text-5xl font-medium tracking-widest text-[#9d4edd] mb-2">Focus</h3>
+            <p class="text-lg text-zinc-300 font-light mb-8">Align body and mind.</p>
+            <div class="flex flex-col gap-3 mb-10 border-l border-zinc-700 pl-6">
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">CAFFEINE</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">TAURINE</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">TRYPTOPHAN</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase mt-4">VEGAN</span>
             </div>
-            <div>
-              <button class="px-8 py-3 border border-[#9d4edd] text-[#9d4edd] font-medium tracking-widest text-xs uppercase hover:bg-[#9d4edd] hover:text-black transition-all duration-300 rounded">
-                ADD TO CART
-              </button>
-            </div>
+            <button class="px-8 py-3 border border-[#9d4edd] text-[#9d4edd] font-medium tracking-widest text-[0.65rem] md:text-xs uppercase hover:bg-[#9d4edd] hover:text-black transition-all duration-300 rounded">
+              ADD TO CART
+            </button>
           </div>
         </div>
       </article>
 
       <!-- Produto 3: RELAX -->
-      <article class="relative container mx-auto px-6 md:px-12">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-radial-relax blur-[120px] pointer-events-none rounded-full"></div>
-        <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-32">
-          <div class="w-full md:w-1/2 flex justify-center lg:justify-end fade-hidden" data-fade>
-            <img src="img/relax-pill.png" alt="Relax Supplement" class="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:-translate-y-4" />
+      <article class="relative w-full min-h-screen flex items-center py-24 overflow-hidden border-b border-zinc-900/50">
+        <!-- Imagem de Fundo c/ Vignette -->
+        <div class="absolute inset-0 z-0 flex justify-center items-center opacity-30">
+          <img src="BACKGROUND-RELAX.jpg" alt="Relax Background" class="w-full h-full object-cover object-center" />
+          <div class="bg-vignette"></div>
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+          <!-- Produto Relax: Pílula ao centro/direita, Texto à direita -->
+          <div class="flex justify-center md:justify-end fade-hidden" data-fade>
+            <img src="img/relax-pill.png" alt="Relax Supplement" class="w-full max-w-[280px] drop-shadow-[0_0_50px_rgba(0,180,216,0.2)] hover:scale-105 transition-transform duration-700" />
           </div>
-          <div class="w-full md:w-1/2 flex flex-col fade-hidden" data-fade>
-            <h3 class="text-5xl font-medium tracking-widest text-[#00b4d8] mb-2">Relax</h3>
-            <p class="text-xl text-zinc-300 font-light mb-10">Restart better every day.</p>
-            <div class="flex flex-col gap-3 mb-10 border-l border-zinc-800 pl-6">
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">L-TRYPTOPHAN</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">MAGNESIUM</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">MELATONIN</span>
-              <span class="text-xs tracking-[0.2em] text-zinc-400 font-light uppercase mt-4">VEGAN</span>
+          <div class="flex flex-col items-start fade-hidden" data-fade>
+            <h3 class="text-4xl md:text-5xl font-medium tracking-widest text-[#00b4d8] mb-2">Relax</h3>
+            <p class="text-lg text-zinc-300 font-light mb-8">Restart better every day.</p>
+            <div class="flex flex-col gap-3 mb-10 border-l border-zinc-700 pl-6">
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">L-TRYPTOPHAN</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">MAGNESIUM</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase">MELATONIN</span>
+              <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-zinc-400 font-light uppercase mt-4">VEGAN</span>
             </div>
-            <div>
-              <button class="px-8 py-3 border border-[#00b4d8] text-[#00b4d8] font-medium tracking-widest text-xs uppercase hover:bg-[#00b4d8] hover:text-black transition-all duration-300 rounded">
-                ADD TO CART
-              </button>
-            </div>
+            <button class="px-8 py-3 border border-[#00b4d8] text-[#00b4d8] font-medium tracking-widest text-[0.65rem] md:text-xs uppercase hover:bg-[#00b4d8] hover:text-black transition-all duration-300 rounded">
+              ADD TO CART
+            </button>
           </div>
         </div>
       </article>
@@ -230,20 +268,20 @@
     </section>
 
     <!-- SECÇÃO 4: IMPACTO (Estatísticas) -->
-    <section class="py-24 mt-12 bg-black border-t border-zinc-900/50">
+    <section class="py-24 bg-black">
       <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-16 fade-hidden" data-fade>
-        <div class="max-w-sm">
-          <h2 class="text-3xl md:text-4xl font-light tracking-tight leading-tight">
-            We are changing the world together.
+        <div class="max-w-xs md:max-w-sm">
+          <h2 class="text-3xl md:text-4xl font-extralight tracking-tight leading-tight">
+            We are<br/>changing the<br/>world together.
           </h2>
         </div>
-        <div class="flex flex-col sm:flex-row gap-16 md:gap-32">
+        <div class="flex flex-col sm:flex-row gap-16 md:gap-24 lg:gap-32">
           <div>
-            <div class="text-5xl md:text-6xl font-bold text-white mb-2">+126</div>
+            <div class="text-5xl md:text-6xl font-semibold text-white mb-2">+126</div>
             <div class="text-sm md:text-base text-zinc-400 font-light">Impacted<br/>people</div>
           </div>
           <div>
-            <div class="text-5xl md:text-6xl font-bold text-white mb-2">+42</div>
+            <div class="text-5xl md:text-6xl font-semibold text-white mb-2">+42</div>
             <div class="text-sm md:text-base text-zinc-400 font-light">Hectares of<br/>reforested area</div>
           </div>
         </div>
@@ -251,7 +289,7 @@
     </section>
 
     <!-- SECÇÃO 5: RECOMPENSAS (Volunteer and win rewards) -->
-    <section id="rewards" class="py-32 bg-zinc-950 border-t border-zinc-900">
+    <section id="rewards" class="py-32 bg-black border-t border-zinc-900/50">
       <div class="container mx-auto px-6 md:px-12">
         <div class="text-center mb-20 fade-hidden" data-fade>
           <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4 text-white">Volunteer and win rewards</h2>
@@ -259,29 +297,33 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Item 1 -->
           <article class="flex flex-col items-center fade-hidden" data-fade>
-            <div class="w-full aspect-[4/5] bg-[#050505] rounded-[2rem] border border-zinc-900 hover:border-zinc-700 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-xl">
+            <div class="w-full aspect-[4/5] bg-[#0a0a0a] rounded-[2rem] border border-zinc-800/60 hover:border-zinc-600 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-2xl overflow-hidden">
               <img src="img/chaveiro.png" alt="Keychain" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             </div>
             <p class="text-zinc-400 font-light tracking-widest uppercase text-xs">10 points</p>
           </article>
           
+          <!-- Item 2 -->
           <article class="flex flex-col items-center fade-hidden" data-fade>
-            <div class="w-full aspect-[4/5] bg-[#050505] rounded-[2rem] border border-zinc-900 hover:border-zinc-700 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-xl">
+            <div class="w-full aspect-[4/5] bg-[#0a0a0a] rounded-[2rem] border border-zinc-800/60 hover:border-zinc-600 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-2xl overflow-hidden">
               <img src="img/pin.png" alt="Pin" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             </div>
             <p class="text-zinc-400 font-light tracking-widest uppercase text-xs">20 points</p>
           </article>
 
+          <!-- Item 3 -->
           <article class="flex flex-col items-center fade-hidden" data-fade>
-            <div class="w-full aspect-[4/5] bg-[#050505] rounded-[2rem] border border-zinc-900 hover:border-zinc-700 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-xl">
+            <div class="w-full aspect-[4/5] bg-[#0a0a0a] rounded-[2rem] border border-zinc-800/60 hover:border-zinc-600 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-2xl overflow-hidden">
               <img src="img/bone.png" alt="Cap" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             </div>
             <p class="text-zinc-400 font-light tracking-widest uppercase text-xs">30 points</p>
           </article>
 
+          <!-- Item 4 -->
           <article class="flex flex-col items-center fade-hidden" data-fade>
-            <div class="w-full aspect-[4/5] bg-[#050505] rounded-[2rem] border border-zinc-900 hover:border-zinc-700 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-xl">
+            <div class="w-full aspect-[4/5] bg-[#0a0a0a] rounded-[2rem] border border-zinc-800/60 hover:border-zinc-600 transition-colors duration-500 flex items-center justify-center p-8 mb-6 group cursor-pointer shadow-2xl overflow-hidden">
               <img src="img/camiseta.png" alt="T-Shirt" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             </div>
             <p class="text-zinc-400 font-light tracking-widest uppercase text-xs">40 points</p>
@@ -291,13 +333,15 @@
     </section>
 
     <!-- SECÇÃO 6: CTA FINAL (Montagem na Pedra) -->
-    <section class="py-32 relative overflow-hidden border-t border-zinc-900">
+    <section class="py-32 relative overflow-hidden">
+      <!-- Fundo -->
       <div class="absolute inset-0 bg-[url('img/montagem.png')] bg-cover bg-center"></div>
-      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80"></div>
+      
       <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="max-w-xl fade-hidden" data-fade>
-          <h2 class="text-4xl md:text-5xl font-light mb-6 leading-tight text-white">Elevate your mindset</h2>
-          <p class="text-lg text-zinc-300 font-light mb-10 leading-relaxed max-w-xl">
+          <h2 class="text-4xl md:text-5xl font-extralight mb-6 leading-tight text-white">Elevate your<br/>mindset</h2>
+          <p class="text-base md:text-lg text-zinc-300 font-light mb-10 leading-relaxed max-w-sm">
             Start your journey to sharper focus and mental clarity with the Biomatrix kit.
           </p>
           <button class="px-8 py-3 border border-white text-white font-medium tracking-widest text-xs uppercase transition-all duration-300 hover:bg-white hover:text-black rounded-full">
@@ -310,14 +354,14 @@
   </main>
 
   <!-- RODAPÉ BRANCO (Igual ao mockup) -->
-  <footer id="contact" class="bg-white text-black py-16">
-    <div class="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row justify-between gap-12">
+  <footer id="contact" class="bg-[#f9f9f9] text-black py-16">
+    <div class="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row justify-between gap-16 lg:gap-12">
       <!-- Logo e Lojas Esquerda -->
       <div class="flex flex-col gap-8 lg:w-1/3">
         <a href="#" class="inline-block">
-          <img src="img/LOGO-PRETO.png" alt="Biomatrix" class="h-5 md:h-6 object-contain" />
+          <img src="img/LOGO-PRETO.png" alt="Biomatrix" class="h-4 md:h-5 object-contain" onerror="this.src='img/LOGO-PRETO (1).png'"/>
         </a>
-        <div class="flex gap-4">
+        <div class="flex flex-wrap gap-4">
           <!-- Botão App Store Fake -->
           <button class="bg-black text-white px-5 py-2.5 rounded-lg flex items-center gap-2 hover:bg-zinc-800 transition-colors">
              <div class="flex flex-col items-start text-left">
@@ -336,9 +380,9 @@
       </div>
 
       <!-- Links Direita -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:w-2/3 text-sm font-light text-zinc-600">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:w-2/3 text-sm font-light text-zinc-700">
         <div class="flex flex-col gap-4">
-          <a href="#" class="hover:text-black transition-colors">About</a>
+          <a href="#" class="hover:text-black font-medium transition-colors">About</a>
           <a href="#" class="hover:text-black transition-colors">Buy now</a>
           <a href="#" class="hover:text-black transition-colors">Contact</a>
         </div>
@@ -356,7 +400,7 @@
     </div>
     
     <!-- Linha de fundo -->
-    <div class="container mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-zinc-200 text-center lg:text-left flex flex-col lg:flex-row justify-between text-xs text-zinc-500 font-light gap-4">
+    <div class="container mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-zinc-200 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center text-xs text-zinc-500 font-light gap-4">
       <div>Privacy Policy | Terms & Conditions | Cookies Policy</div>
       <div>&copy; 2026 BIOMATRIX. ALL RIGHTS RESERVED.</div>
     </div>
