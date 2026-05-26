@@ -36,18 +36,17 @@
       transform: translateY(0);
     }
 
-    /* Topographic Graphic / Padrão */
+    /* Topographic Graphic / Padrão ajustado para ficar grande e suave */
     .topo-graphic {
       background-image: repeating-radial-gradient(
-        circle at center,
+        ellipse at center,
         transparent 0,
-        transparent 8px,
-        rgba(255, 255, 255, 0.15) 9px,
-        transparent 10px
+        transparent 15px,
+        rgba(255, 255, 255, 0.08) 16px,
+        transparent 17px
       );
-      mask-image: radial-gradient(circle, black 20%, transparent 70%);
-      -webkit-mask-image: radial-gradient(circle, black 20%, transparent 70%);
-      border-radius: 50%;
+      mask-image: radial-gradient(ellipse at center, black 10%, transparent 65%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 65%);
     }
 
     /* Efeito de Vignette */
@@ -145,7 +144,7 @@
       
       <div class="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8 lg:gap-12">
         <!-- Texto Esquerda -->
-        <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left fade-hidden" data-fade>
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left fade-hidden z-20" data-fade>
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.1] tracking-tight text-white mb-6">
             Elevate<br/>
             your mind,<br/>
@@ -153,25 +152,26 @@
             your future.
           </h1>
         </div>
-        <!-- Imagem Direita -->
-        <div class="w-full md:w-1/2 relative fade-hidden flex justify-center" data-fade>
-          <img src="img/home-img.png" alt="Biomatrix Products Floating" class="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain drop-shadow-2xl md:scale-110" onerror="this.src='https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80'" />
+        <!-- Imagem Direita - Aumentada significativamente no Desktop -->
+        <div class="w-full md:w-1/2 relative fade-hidden flex justify-center md:justify-end z-10" data-fade>
+          <img src="img/home-img.png" alt="Biomatrix Products Floating" class="relative z-10 w-full max-w-sm md:max-w-none md:w-[130%] lg:w-[140%] xl:w-[150%] object-contain drop-shadow-2xl md:-mr-10 lg:-mr-20 xl:-mr-24" onerror="this.src='https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80'" />
         </div>
       </div>
     </section>
 
     <!-- SECÇÃO 2: FRASE DE IMPACTO (Unleash a better self) -->
-    <section id="about" class="py-16 md:py-24 relative flex flex-col items-center text-center overflow-hidden">
-      <div class="container mx-auto px-6 md:px-12 relative z-10 max-w-3xl flex flex-col items-center fade-hidden" data-fade>
+    <section id="about" class="py-24 md:py-32 relative flex flex-col items-center text-center overflow-hidden">
+      <div class="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl flex flex-col items-center fade-hidden" data-fade>
         
         <!-- Elemento Gráfico Topográfico Simulando a digital do mockup -->
-        <div class="w-48 md:w-64 h-24 md:h-32 topo-graphic mb-10 md:mb-12 opacity-80"></div>
+        <!-- Posicionado à esquerda e ampliado, com opacidade suave -->
+        <div class="absolute -top-10 md:-top-32 -left-10 md:-left-40 w-[300px] md:w-[600px] h-[300px] md:h-[600px] topo-graphic pointer-events-none z-[-1]"></div>
         
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extralight leading-tight tracking-tight mb-6 md:mb-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight leading-tight tracking-tight mb-6 md:mb-8 text-white relative z-10">
           Unleash a <span class="border-b border-white pb-1">better self</span><br />
           for a <span class="border-b border-white pb-1">better world.</span>
         </h2>
-        <p class="text-sm sm:text-base md:text-lg text-zinc-400 font-light leading-relaxed max-w-xl mx-auto px-4">
+        <p class="text-sm sm:text-base md:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto px-4 relative z-10">
           Biomatrix is about energizing the mind for a healthier, more sustainable world—a movement for positive change.
         </p>
       </div>
@@ -372,20 +372,14 @@
           <img src="img/LOGO-PRETO.png" alt="Biomatrix" class="h-4 md:h-5 object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold tracking-widest text-black\'>BIOMATRIX</span>'"/>
         </a>
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
-          <!-- Botão App Store Fake -->
-          <button class="w-full sm:w-auto justify-center bg-black text-white px-5 py-2.5 rounded-lg flex items-center gap-2 hover:bg-zinc-800 transition-colors">
-             <div class="flex flex-col items-start text-left">
-               <span class="text-[0.6rem] leading-none text-zinc-300">Download on the</span>
-               <span class="text-sm font-semibold leading-none mt-1">App Store</span>
-             </div>
-          </button>
-          <!-- Botão Google Play Fake -->
-          <button class="w-full sm:w-auto justify-center bg-black text-white px-5 py-2.5 rounded-lg flex items-center gap-2 hover:bg-zinc-800 transition-colors">
-            <div class="flex flex-col items-start text-left">
-              <span class="text-[0.6rem] leading-none text-zinc-300">GET IT ON</span>
-              <span class="text-sm font-semibold leading-none mt-1">Google Play</span>
-            </div>
-          </button>
+          <!-- Logo App Store Oficial -->
+          <a href="#" class="inline-block hover:scale-105 transition-transform duration-300">
+             <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-10 md:h-12 w-auto" />
+          </a>
+          <!-- Logo Google Play Oficial -->
+          <a href="#" class="inline-block hover:scale-105 transition-transform duration-300">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-10 md:h-12 w-auto" />
+          </a>
         </div>
       </div>
 
