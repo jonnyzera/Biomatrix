@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Biomatrix | Buy Now</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Estilo para a barra de rolagem (opcional para um look mais premium) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333; 
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+
+    /* Efeitos de input focados nas cores da marca */
+    .input-field {
+      background: #0a0a0a;
+      border: 1px solid #27272a;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .input-field:focus {
+      outline: none;
+      border-color: #fff;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased flex flex-col min-h-screen">
+  
+  <!-- CABEÇALHO SIMPLIFICADO -->
+  <header class="w-full z-50 bg-black/90 backdrop-blur-md py-4 border-b border-zinc-900 sticky top-0">
+    <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <!-- Logótipo com link de volta à Home -->
+      <a href="index.html" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+        <img src="img/LOGO.png" alt="Biomatrix" class="h-4 md:h-5 object-contain" onerror="this.outerHTML='<span class=\'text-xl md:text-2xl font-bold tracking-widest text-white\'>BIOMATRIX</span>'" />
+      </a>
+
+      <!-- Link para voltar -->
+      <nav class="flex items-center">
+        <a href="index.html" class="text-sm font-light text-zinc-400 hover:text-white transition-colors flex items-center gap-2">
+          <span>&larr;</span> Back to home page
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (LOJA & CHECKOUT) -->
+  <main class="flex-grow container mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col lg:flex-row gap-12 lg:gap-20">
+    
+    <!-- LADO ESQUERDO: Seleção de Produtos -->
+    <section class="w-full lg:w-3/5 flex flex-col gap-8">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-extralight mb-2 text-white">Choose your <span class="font-medium">Impact</span></h1>
+        <p class="text-zinc-400 font-light text-sm md:text-base">Add products to your cart to start your Biomatrix journey.</p>
+      </div>
+
+      <!-- Grelha de Produtos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Cartão Produto: Kit Completo -->
+        <article class="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-zinc-600 transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="h-40 w-full flex items-center justify-center relative z-10">
+            <img src="montagem-final.jpg" alt="Biomatrix Kit" class="h-full object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500" onerror="this.src='img/montagem.png'" />
+          </div>
+          <div class="relative z-10 flex-grow flex flex-col justify-end">
+            <h3 class="text-xl font-medium text-white">Biomatrix Full Kit</h3>
+            <p class="text-xs text-zinc-400 font-light mt-1 mb-4">Energy + Focus + Relax</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-lg font-semibold">€89.90</span>
+              <button onclick="addToCart('Biomatrix Full Kit', 89.90)" class="px-4 py-2 bg-white text-black text-xs font-medium uppercase tracking-wider rounded-full hover:bg-zinc-200 transition-colors">
+                Add
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cartão Produto: Energy -->
+        <article class="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-[#ccff00]/50 transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#ccff00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="h-40 w-full flex items-center justify-center relative z-10">
+            <img src="ENERGY0.jpg" alt="Energy" class="h-full object-contain drop-shadow-[0_0_20px_rgba(204,255,0,0.15)] group-hover:scale-105 transition-transform duration-500" onerror="this.src='img/energy-pill.png'" />
+          </div>
+          <div class="relative z-10 flex-grow flex flex-col justify-end">
+            <h3 class="text-xl font-medium text-[#ccff00]">Energy</h3>
+            <p class="text-xs text-zinc-400 font-light mt-1 mb-4">60 Capsules (Vitamin B12, Ginger, Caffeine)</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-lg font-semibold">€34.90</span>
+              <button onclick="addToCart('Energy', 34.90)" class="px-4 py-2 border border-[#ccff00] text-[#ccff00] text-xs font-medium uppercase tracking-wider rounded-full hover:bg-[#ccff00] hover:text-black transition-colors">
+                Add
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cartão Produto: Focus -->
+        <article class="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-[#9d4edd]/50 transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#9d4edd]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="h-40 w-full flex items-center justify-center relative z-10">
+            <img src="FOCUS0.jpg" alt="Focus" class="h-full object-contain drop-shadow-[0_0_20px_rgba(157,78,221,0.15)] group-hover:scale-105 transition-transform duration-500" onerror="this.src='img/focus-pill.png'" />
+          </div>
+          <div class="relative z-10 flex-grow flex flex-col justify-end">
+            <h3 class="text-xl font-medium text-[#9d4edd]">Focus</h3>
+            <p class="text-xs text-zinc-400 font-light mt-1 mb-4">60 Capsules (Caffeine, Taurine, Tryptophan)</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-lg font-semibold">€34.90</span>
+              <button onclick="addToCart('Focus', 34.90)" class="px-4 py-2 border border-[#9d4edd] text-[#9d4edd] text-xs font-medium uppercase tracking-wider rounded-full hover:bg-[#9d4edd] hover:text-black transition-colors">
+                Add
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cartão Produto: Relax -->
+        <article class="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 flex flex-col gap-4 hover:border-[#00b4d8]/50 transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#00b4d8]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="h-40 w-full flex items-center justify-center relative z-10">
+            <img src="RELAX0.jpg" alt="Relax" class="h-full object-contain drop-shadow-[0_0_20px_rgba(0,180,216,0.15)] group-hover:scale-105 transition-transform duration-500" onerror="this.src='img/relax-pill.png'" />
+          </div>
+          <div class="relative z-10 flex-grow flex flex-col justify-end">
+            <h3 class="text-xl font-medium text-[#00b4d8]">Relax</h3>
+            <p class="text-xs text-zinc-400 font-light mt-1 mb-4">60 Capsules (L-Tryptophan, Magnesium, Melatonin)</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-lg font-semibold">€34.90</span>
+              <button onclick="addToCart('Relax', 34.90)" class="px-4 py-2 border border-[#00b4d8] text-[#00b4d8] text-xs font-medium uppercase tracking-wider rounded-full hover:bg-[#00b4d8] hover:text-black transition-colors">
+                Add
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- LADO DIREITO: Resumo e Pagamento -->
+    <aside class="w-full lg:w-2/5">
+      <div class="bg-[#050505] border border-zinc-900 rounded-2xl p-6 md:p-8 sticky top-24">
+        
+        <h2 class="text-2xl font-light mb-6 border-b border-zinc-800 pb-4">Order Summary</h2>
+        
+        <!-- Itens no Carrinho (Dinâmico) -->
+        <div id="cart-items" class="flex flex-col gap-4 mb-6 min-h-[80px]">
+          <p class="text-sm text-zinc-500 font-light italic" id="empty-cart-msg">Your cart is empty.</p>
+          <!-- Os itens adicionados via JavaScript aparecerão aqui -->
+        </div>
+
+        <!-- Totais -->
+        <div class="border-t border-zinc-800 pt-4 mb-8 flex flex-col gap-2">
+          <div class="flex justify-between text-sm text-zinc-400 font-light">
+            <span>Subtotal</span>
+            <span id="subtotal-display">€0.00</span>
+          </div>
+          <div class="flex justify-between text-sm text-zinc-400 font-light">
+            <span>Shipping</span>
+            <span id="shipping-display">Free</span>
+          </div>
+          <div class="flex justify-between text-lg font-medium text-white mt-2">
+            <span>Total</span>
+            <span id="total-display">€0.00</span>
+          </div>
+        </div>
+
+        <!-- Formulário de Checkout Mockup -->
+        <form onsubmit="processCheckout(event)" class="flex flex-col gap-4">
+          <h3 class="text-sm font-medium text-zinc-300 mb-2 uppercase tracking-wider">Shipping Details</h3>
+          
+          <input type="text" required placeholder="Full Name" class="w-full p-3 rounded-lg input-field text-sm font-light" />
+          <input type="email" required placeholder="Email Address" class="w-full p-3 rounded-lg input-field text-sm font-light" />
+          <input type="text" required placeholder="Shipping Address" class="w-full p-3 rounded-lg input-field text-sm font-light" />
+          
+          <div class="flex gap-4">
+            <input type="text" required placeholder="Zip Code" class="w-1/2 p-3 rounded-lg input-field text-sm font-light" />
+            <input type="text" required placeholder="City" class="w-1/2 p-3 rounded-lg input-field text-sm font-light" />
+          </div>
+
+          <h3 class="text-sm font-medium text-zinc-300 mt-4 mb-2 uppercase tracking-wider">Payment</h3>
+          
+          <input type="text" required placeholder="Card Number" class="w-full p-3 rounded-lg input-field text-sm font-light" />
+          <div class="flex gap-4 mb-4">
+            <input type="text" required placeholder="MM/YY" class="w-1/2 p-3 rounded-lg input-field text-sm font-light" />
+            <input type="text" required placeholder="CVC" class="w-1/2 p-3 rounded-lg input-field text-sm font-light" />
+          </div>
+
+          <!-- Botão de Finalizar -->
+          <button type="submit" id="checkout-btn" disabled class="w-full py-4 bg-zinc-800 text-zinc-500 cursor-not-allowed font-medium tracking-widest text-sm uppercase rounded-lg transition-all duration-300">
+            Complete Purchase
+          </button>
+        </form>
+
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- RODAPÉ SIMPLIFICADO -->
+  <footer class="bg-[#111] py-8 border-t border-zinc-900 mt-auto">
+    <div class="container mx-auto px-6 md:px-12 text-center text-xs text-zinc-600 font-light">
+      <p>Secure Payment | Fast Shipping | Biomatrix Guarantee</p>
+      <p class="mt-2">&copy; 2026 BIOMATRIX. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PARA O CARRINHO DE COMPRAS -->
+  <script>
+    // Estado do carrinho
+    let cart = [];
+    let total = 0;
+
+    const cartItemsContainer = document.getElementById('cart-items');
+    const emptyMsg = document.getElementById('empty-cart-msg');
+    const subtotalDisplay = document.getElementById('subtotal-display');
+    const totalDisplay = document.getElementById('total-display');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    // Função para adicionar produto ao carrinho
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCartUI();
+    }
+
+    // Função para remover produto do carrinho
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    // Atualiza a interface do carrinho
+    function updateCartUI() {
+      // Limpar itens atuais
+      cartItemsContainer.innerHTML = '';
+      total = 0;
+
+      if (cart.length === 0) {
+        // Mostrar mensagem vazia
+        cartItemsContainer.appendChild(emptyMsg);
+        emptyMsg.style.display = 'block';
+        
+        // Desativar botão de checkout
+        checkoutBtn.disabled = true;
+        checkoutBtn.classList.add('bg-zinc-800', 'text-zinc-500', 'cursor-not-allowed');
+        checkoutBtn.classList.remove('bg-white', 'text-black', 'hover:bg-zinc-200', 'cursor-pointer');
+      } else {
+        emptyMsg.style.display = 'none';
+
+        // Renderizar itens
+        cart.forEach((item, index) => {
+          total += item.price;
+          
+          const itemEl = document.createElement('div');
+          itemEl.className = 'flex justify-between items-center text-sm font-light text-zinc-300 bg-zinc-900/50 p-3 rounded-lg border border-zinc-800/50';
+          itemEl.innerHTML = `
+            <span>${item.name}</span>
+            <div class="flex items-center gap-4">
+              <span class="font-medium text-white">€${item.price.toFixed(2)}</span>
+              <button type="button" onclick="removeFromCart(${index})" class="text-zinc-500 hover:text-red-400 text-lg leading-none transition-colors">&times;</button>
+            </div>
+          `;
+          cartItemsContainer.appendChild(itemEl);
+        });
+
+        // Ativar botão de checkout
+        checkoutBtn.disabled = false;
+        checkoutBtn.classList.remove('bg-zinc-800', 'text-zinc-500', 'cursor-not-allowed');
+        checkoutBtn.classList.add('bg-white', 'text-black', 'hover:bg-zinc-200', 'cursor-pointer', 'shadow-[0_0_20px_rgba(255,255,255,0.2)]');
+      }
+
+      // Atualizar displays de preço
+      subtotalDisplay.innerText = `€${total.toFixed(2)}`;
+      totalDisplay.innerText = `€${total.toFixed(2)}`;
+    }
+
+    // Processar o formulário
+    function processCheckout(e) {
+      e.preventDefault();
+      if (cart.length === 0) return;
+      
+      // Simulação de compra com sucesso
+      checkoutBtn.innerText = "PROCESSING...";
+      checkoutBtn.classList.add('opacity-70', 'cursor-wait');
+      
+      setTimeout(() => {
+        alert('Thank you for your order! Welcome to the Biomatrix revolution.');
+        cart = [];
+        updateCartUI();
+        e.target.reset(); // Limpa o formulário
+        checkoutBtn.innerText = "COMPLETE PURCHASE";
+        checkoutBtn.classList.remove('opacity-70', 'cursor-wait');
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
