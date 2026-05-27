@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "biomatrix"
+    "liveServer.settings.multiRootWorkspaceName": "biomatrix",
+    "liveServer.settings.port": 5501
 }
